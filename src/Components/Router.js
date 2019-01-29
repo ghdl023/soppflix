@@ -13,7 +13,7 @@ export default () => (
   <Router>
     <Switch>
       <Route path="/" exact component={Home} />
-      <Route path="/tv" component={TV} />
+      <Route path="/tv" exact component={TV} />
       <Route path="/tv/popular" render={() => <h1>Popular</h1>} />
       <Route path="/search" component={Search} />
       <Redirect from="*" to="/" />
