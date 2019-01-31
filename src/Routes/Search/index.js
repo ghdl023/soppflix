@@ -1,3 +1,3 @@
-import SearchComponent from "./SearchComponent";
+import SearchContainer from "./SearchContainer";
 
-export default SearchComponent;
+export default SearchContainer;
