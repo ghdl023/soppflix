@@ -11,11 +11,11 @@ const SearchPresenter = ({
   handleSubmit
 }) => null;
 
-SearchPresenter.PropTypes = {
+SearchPresenter.propTypes = {
   movieResults: PropTypes.array,
   tvResults: PropTypes.array,
   searchTerm: PropTypes.array,
-  loading: PropTypes.boolean.isRequired,
+  loading: PropTypes.bool.isRequired,
   error: PropTypes.string,
   handleSubmit: PropTypes.func.isRequired
 };

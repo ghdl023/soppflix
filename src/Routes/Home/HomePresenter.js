@@ -1,15 +1,37 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import Section from "Components/Section";
+
+const Container = styled.div``;
 
 const HomePresenter = ({ nowPlaying, upcoming, popular, loading, error }) =>
-  null;
+  loading ? null : (
+    <Container>
+      {nowPlaying && nowPlaying.length > 0 && (
+        <Section title="Now Playing">
+          {nowPlaying.map(movie => movie.title)}
+        </Section>
+      )}
+      {upcoming && upcoming.length > 0 && (
+        <Section title="Upcoming Movies">
+          {upcoming.map(movie => movie.title)}
+        </Section>
+      )}
 
-HomePresenter.PropTypes = {
+      {popular && popular.length > 0 && (
+        <Section title="Popular Movies">
+          {popular.map(movie => movie.title)}
+        </Section>
+      )}
+    </Container>
+  );
+
+HomePresenter.propTypes = {
   nowPlaying: PropTypes.array,
   upcoming: PropTypes.array,
   popular: PropTypes.array,
-  loading: PropTypes.boolean.isRequired,
+  loading: PropTypes.bool.isRequired,
   error: PropTypes.string
 };
 
