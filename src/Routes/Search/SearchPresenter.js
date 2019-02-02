@@ -1,8 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import Loader from "../../Components/Loader";
-import Section from "../../Components/Section";
+import Loader from "Components/Loader";
+import Section from "Components/Section";
+import Message from "Components/Message";
 
 const Container = styled.div`
   padding: 0 10px;
@@ -59,6 +60,13 @@ const SearchPresenter = ({
             ))}
           </Section>
         )}
+        {error && <Message text={error} color="ea2027" />}
+        {tvResults &&
+          movieResults &&
+          tvResults.length === 0 &&
+          movieResults.length === 0 && (
+            <Message text="Nothing Found" color="#95a5a6" />
+          )}
       </>
     )}
   </Container>

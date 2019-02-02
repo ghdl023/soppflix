@@ -13,6 +13,7 @@ export default class extends React.Component {
 
   async componentDidMount() {
     try {
+      throw Error();
       const nowPlaying = await this._getNowPlaying();
       const upcoming = await this._getUpComing();
       const popular = await this._getPopular();
@@ -24,7 +25,7 @@ export default class extends React.Component {
       });
     } catch (error) {
       this.setState({
-        error: "Can't find Moives Information..."
+        error: "Can't find Movies Information..."
       });
     } finally {
       this.setState({
