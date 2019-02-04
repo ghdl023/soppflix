@@ -1,12 +1,12 @@
 # Soppflix
 
-Learning React and ES6 by building a Movie Discovery App.
+Learning React and ES6 by building a Movie Discovery App(Netflix).
 
 ## Screens
 
-- [ ] Home
-- [ ] TV Shows
-- [ ] Search
+- [x] Home
+- [x] TV Shows
+- [x] Search
 - [ ] Detail
 
 ## API Verbs
