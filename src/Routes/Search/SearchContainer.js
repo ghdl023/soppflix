@@ -35,7 +35,7 @@ export default class extends React.Component {
       loading: true
     });
     try {
-      throw Error();
+      // throw Error();
 
       const {
         data: { results: movieResults }

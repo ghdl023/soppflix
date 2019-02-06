@@ -13,7 +13,7 @@ export default class extends React.Component {
 
   async componentDidMount() {
     try {
-      throw Error();
+      // throw Error();
       const nowPlaying = await this._getNowPlaying();
       const upcoming = await this._getUpComing();
       const popular = await this._getPopular();

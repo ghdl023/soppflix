@@ -13,7 +13,7 @@ export default class extends React.Component {
 
   async componentDidMount() {
     try {
-      throw Error();
+      // throw Error();
       const topRated = await this._getTopRated();
       const popular = await this._getPopular();
       const airingToday = await this._getAiringToday();
