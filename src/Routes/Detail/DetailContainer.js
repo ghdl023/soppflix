@@ -1,6 +1,6 @@
 import React from "react";
 import DetailPresenter from "./DetailPresenter";
-import { moviesApi, tvApi } from "api";
+import { moviesApi, tvApi } from "../../api";
 
 export default class extends React.Component {
   constructor(props) {
@@ -10,9 +10,9 @@ export default class extends React.Component {
     } = props;
     this.state = {
       result: null,
-      loading: true,
       error: null,
-      isMoive: pathname.includes("/movie/")
+      loading: true,
+      isMovie: pathname.includes("/movie/")
     };
   }
 
@@ -35,21 +35,15 @@ export default class extends React.Component {
       } else {
         ({ data: result } = await tvApi.showDetail(parsedId));
       }
-    } catch (error) {
-      this.setState({
-        error: "Can't find anything.."
-      });
+    } catch {
+      this.setState({ error: "Can't find anything." });
     } finally {
-      this.setState({
-        loading: false,
-        result
-      });
+      this.setState({ loading: false, result });
     }
   }
 
   render() {
-    const { result, loading, error } = this.state;
-    console.log(result);
-    return <DetailPresenter result={result} loading={loading} error={error} />;
+    const { result, error, loading } = this.state;
+    return <DetailPresenter result={result} error={error} loading={loading} />;
   }
 }
