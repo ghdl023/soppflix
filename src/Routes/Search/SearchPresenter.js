@@ -5,7 +5,7 @@ import Loader from "Components/Loader";
 import Section from "Components/Section";
 import Message from "Components/Message";
 import Poster from "Components/Poster";
-
+import Helmet from "react-helmet";
 const Container = styled.div`
   padding: 0 10px;
 `;
@@ -36,6 +36,9 @@ const SearchPresenter = ({
   updateTerm
 }) => (
   <Container>
+    <Helmet>
+      <title>Search | Soppflix</title>
+    </Helmet>
     <Form onSubmit={handleSubmit}>
       <Input
         placeholder="Search Movies or TV Shows..."
@@ -50,14 +53,29 @@ const SearchPresenter = ({
         {movieResults && movieResults.length > 0 && (
           <Section title="Movie Results">
             {movieResults.map(movie => (
-              <Poster id={movie.id} imageUrl={movie.poster_path} title={movie.original_title} rating={movie.vote_average} year={movie.release_date && movie.release_date.substring(0,4)} isMovie={true} />
+              <Poster
+                id={movie.id}
+                imageUrl={movie.poster_path}
+                title={movie.original_title}
+                rating={movie.vote_average}
+                year={movie.release_date && movie.release_date.substring(0, 4)}
+                isMovie={true}
+              />
             ))}
           </Section>
         )}
         {tvResults && tvResults.length > 0 && (
           <Section title="TV Show Results">
             {tvResults.map(show => (
-              <Poster id={show.id} imageUrl={show.poster_path} title={show.original_name} rating={show.vote_average} year={show.first_air_date && show.first_air_date.substring(0,4)} />
+              <Poster
+                id={show.id}
+                imageUrl={show.poster_path}
+                title={show.original_name}
+                rating={show.vote_average}
+                year={
+                  show.first_air_date && show.first_air_date.substring(0, 4)
+                }
+              />
             ))}
           </Section>
         )}
